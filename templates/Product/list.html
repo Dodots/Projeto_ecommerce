@@ -1,0 +1,21 @@
+<div class='container'>
+    <div class='row'>
+        {% for obj in object_list %}
+            <div class='col'>
+            {{ forloop.counter }}
+            <div class="card" style="width: 18rem;">
+                {% if instance.image %}
+                    <a href="{{ obj.get_absolute_url }}">
+                        <img src="{{ obj.image.url }}" class="card-img-top" alt="{{ instance.title }} logo">
+                    </a>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ obj.title }}</h5>
+                    <p class="card-text">{{ obj.description|truncatewords:14 }}</p>
+                </div>
+            </div>
+                </div>
+            {% endif%}
+        {% endfor%}
+    </div>
+</div>
