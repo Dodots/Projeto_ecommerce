@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Product
 
 class ProductAdmin(admin.ModelAdmin):
-	list_display = ('__str__', )
+	list_display = ('__str__', 'slug')
 
 	class meta:
 		model = Product
