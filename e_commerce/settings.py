@@ -16,6 +16,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Application definition
 
@@ -26,9 +27,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    #library
+    'crispy_forms',
 
     #apps
     'product',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -91,6 +96,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Configuração de autenticação
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'user:login'
+LOGIN_URL = 'user:login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/

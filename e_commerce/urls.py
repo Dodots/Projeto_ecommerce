@@ -10,6 +10,7 @@ urlpatterns = [
     path('', home_page, name='home'),
 
     path('products/', include("product.urls", namespace="products")),
+    path('auth/', include("user.urls", namespace="user")),
 ]
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
