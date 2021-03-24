@@ -1,6 +1,7 @@
 {% extends "base/base.html" %}
 {% load static %}
 
+
 <title>Home Page template</title>
 
 {% block base_head %}
@@ -8,10 +9,19 @@
 {% endblock base_head%}
 
 {% block content %}
+{% url 'user:update_data' as update_data_url %}
+
     <!-- Aqui vai tudo que é referente a home_page  -->
     <div class='text-center'>
         <h1>{{ title }}</h1>
+        {% if user.is_authenticated %}
+        <h2>Olá {{ user.username }}</h2>
+            {% if not user.perfil.nome_completo %}
+            completae o seu cadastro. clique <a href="{{ update_data_url }}">aqui</a> para atualizar.
+            {%endif%}
+        {% else %}
         <p>{{ content }}</p>
+        {% endif %}
     </div>
     
     <div class='row'>
