@@ -11,6 +11,7 @@ urlpatterns = [
 
     path('products/', include("product.urls", namespace="products")),
     path('auth/', include("user.urls", namespace="user")),
+    path('search/', include("search.urls", namespace="search")),
 ]
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
