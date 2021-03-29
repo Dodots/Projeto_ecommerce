@@ -19,7 +19,7 @@
     </div>
 
     <div class='container'>
-        <h1 class='my-4'>Produtos em Destaque:</h1>
+        <h1 class='my-4'>Produtos em destaque:</h1>
         <div class='row justify-content-center'>
             {% for obj in object_list %}
                 <div class='col-lg-4 col-md-6 col-10'>
@@ -29,19 +29,5 @@
             {% endfor%}
         </div>
     </div>
-
-    <!-- Aqui vai tudo que é referente a home_page  -->
-    <div class='text-center my-4'>
-        <h1>{{ title }}</h1>
-        {% if user.is_authenticated %}
-        <h2>Olá {{ user.username }}</h2>
-            {% if not user.perfil.nome_completo %}
-            Complete o seu cadastro clicando <a href="{{ update_data_url }}">aqui</a>.
-            {%endif%}
-        {% else %}
-        <p>{{ content }}</p>
-        {% endif %}
-    </div>
-    
 
 {% endblock %}
