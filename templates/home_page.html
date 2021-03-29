@@ -11,23 +11,23 @@
 {% block content %}
 {% url 'user:update_data' as update_data_url %}
 
-    <!-- Aqui vai tudo que é referente a home_page  -->
-    <div class='text-center'>
-        <h1>{{ title }}</h1>
-        {% if user.is_authenticated %}
-        <h2>Olá {{ user.username }}</h2>
-            {% if not user.perfil.nome_completo %}
-            completae o seu cadastro. clique <a href="{{ update_data_url }}">aqui</a> para atualizar.
-            {%endif%}
-        {% else %}
-        <p>{{ content }}</p>
-        {% endif %}
-    </div>
-    
     <div class='row'>
-        <div class='col text-center'>
-            <img src="{% static 'img/ecommerce.jpg' %}" class='img-fluid' />
+        <div class='div_img_list col text-center'>
+            <img class='imagem_centralizada' src="{% static 'img/e_commerce.jpg' %}" >
             <p>{{ content }}</p> 
         </div>
     </div>
+
+    <div class='container'>
+        <h1 class='my-4'>Produtos em destaque:</h1>
+        <div class='row justify-content-center'>
+            {% for obj in object_list %}
+                <div class='col-lg-4 col-md-6 col-10'>
+                {{ forloop.counter }}
+                {% include 'product/snippets/card.html' with instance=obj %}
+                </div> 
+            {% endfor%}
+        </div>
+    </div>
+
 {% endblock %}
