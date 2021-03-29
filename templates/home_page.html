@@ -36,7 +36,7 @@
         {% if user.is_authenticated %}
         <h2>Olá {{ user.username }}</h2>
             {% if not user.perfil.nome_completo %}
-            completae o seu cadastro. clique <a href="{{ update_data_url }}">aqui</a> para atualizar.
+            Complete o seu cadastro clicando <a href="{{ update_data_url }}">aqui</a>.
             {%endif%}
         {% else %}
         <p>{{ content }}</p>
@@ -44,10 +44,4 @@
     </div>
     
 
-    <div class='row'>
-        <div class='col text-center'>
-            <img src="{% static 'img/ecommerce.jpg' %}" class='img-fluid' />
-            <p>{{ content }}</p> 
-        </div>
-    </div>
 {% endblock %}
