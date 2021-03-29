@@ -1,8 +1,8 @@
 from django.shortcuts import render
+from django.views.generic import ListView
+from product.views import Product
 
-def home_page(request):
-    context = {
-                    "title": "Home Page",
-                    "content": "Bem vindo a Home Page",
-              }
-    return render(request, "home_page.html", context)
+
+class ProductListViewHomePage(ListView):
+    model = Product
+    template_name = "home_page.html"
