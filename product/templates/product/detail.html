@@ -11,6 +11,9 @@
         {{ object.timestamp|timesince }} atrás
       {% endif %}
     </div>
+  
+    <div class=''>
+      {% include 'product/snippets/update-cart.html' with product=object cart=cart %}
+    </div>
   </div>
-
 {% endblock content %}
