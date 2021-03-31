@@ -7,12 +7,13 @@ from .views import ProductListViewHomePage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', ProductListViewHomePage.as_view(), name='home'),
+    path('home', ProductListViewHomePage.as_view(), name='home'),
 
     path('products/', include("product.urls", namespace="products")),
     path('auth/', include("user.urls", namespace="user")),
     path('search/', include("search.urls", namespace="search")),
     path('cart/', include("carts.urls", namespace="cart")),
+    path('whatsapp/', include("whatsapp.urls", namespace="whatsapp")),
 ]
 if settings.DEBUG:
     urlpatterns = urlpatterns + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
